@@ -1,0 +1,53 @@
+{
+  "name": "lakers-timer-app",
+  "version": "1.0.0",
+  "description": "LA Lakers and LeBron James themed timer application",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx http-server . -p 3000 -o -c-1",
+    "test": "npx jest",
+    "test:watch": "npx jest --watch",
+    "test:coverage": "npx jest --coverage",
+    "build": "echo 'No build step required for vanilla JS app'",
+    "lint": "npx eslint *.js",
+    "format": "npx prettier --write *.js *.css *.html"
+  },
+  "keywords": [
+    "timer",
+    "lakers",
+    "lebron-james",
+    "basketball",
+    "countdown",
+    "stopwatch",
+    "web-app"
+  ],
+  "author": "Lakers Timer App",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "fast-check": "^3.15.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.1.1",
+    "http-server": "^14.1.1"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/test-setup.js"],
+    "collectCoverageFrom": [
+      "*.js",
+      "!types.js",
+      "!test-*.js"
+    ],
+    "coverageReporters": ["text", "lcov", "html"],
+    "testMatch": [
+      "**/*.test.js"
+    ]
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakers Timer - LeBron Edition</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo-section">
+                <div class="lakers-logo">🏀</div>
+                <h1 class="app-title">Lakers Timer</h1>
+                <div class="lebron-crown">👑</div>
+            </div>
+            <div class="lebron-mode-toggle">
+                <label class="toggle-switch">
+                    <input type="checkbox" id="lebronMode">
+                    <span class="toggle-slider">LeBron Mode</span>
+                </label>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="timer-section">
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="countdown">Countdown</button>
+                    <button class="mode-btn" data-mode="stopwatch">Stopwatch</button>
+                </div>
+
+                <div class="timer-display">
+                    <div class="time-container">
+                        <div class="progress-ring">
+                            <svg class="progress-svg" width="300" height="300">
+                                <circle class="progress-background" cx="150" cy="150" r="140"></circle>
+                                <circle class="progress-bar" cx="150" cy="150" r="140"></circle>
+                            </svg>
+                            <div class="time-display" id="timeDisplay">00:00</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-section" id="inputSection">
+                    <div class="time-inputs">
+                        <div class="input-group">
+                            <label for="minutes">Minutes</label>
+                            <input type="number" id="minutes" min="0" max="59" value="5">
+                        </div>
+                        <div class="input-group">
+                            <label for="seconds">Seconds</label>
+                            <input type="number" id="seconds" min="0" max="59" value="0">
+                        </div>
+                    </div>
+                    
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-minutes="5">5 min</button>
+                        <button class="preset-btn" data-minutes="10">10 min</button>
+                        <button class="preset-btn" data-minutes="15">15 min</button>
+                        <button class="preset-btn lebron-preset" data-minutes="23">23 min</button>
+                        <button class="preset-btn" data-minutes="30">30 min</button>
+                    </div>
+                </div>
+
+                <div class="control-panel">
+                    <button class="control-btn start-btn" id="startBtn">
+                        <span class="btn-icon">▶</span>
+                        <span class="btn-text">Start</span>
+                    </button>
+                    <button class="control-btn pause-btn" id="pauseBtn" disabled>
+                        <span class="btn-icon">⏸</span>
+                        <span class="btn-text">Pause</span>
+                    </button>
+                    <button class="control-btn reset-btn" id="resetBtn">
+                        <span class="btn-icon">⏹</span>
+                        <span class="btn-text">Reset</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="lebron-content" id="lebronContent">
+                <div class="quote-section" id="quoteSection">
+                    <blockquote class="lebron-quote" id="lebronQuote">
+                        "I like criticism. It makes you strong."
+                    </blockquote>
+                </div>
+                
+                <div class="achievements-section" id="achievementsSection">
+                    <h3>The King's Legacy</h3>
+                    <div class="achievement-grid">
+                        <div class="achievement-item">
+                            <div class="achievement-number">4</div>
+                            <div class="achievement-label">NBA Championships</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">4</div>
+                            <div class="achievement-label">Finals MVPs</div>
+                        </div>
+                        <div class="achievement-item">
+                            <div class="achievement-number">20</div>
+                            <div class="achievement-label">All-Star Games</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="notification-overlay" id="notificationOverlay">
+            <div class="notification-content">
+                <div class="notification-icon">🏆</div>
+                <h2 class="notification-title">Time's Up!</h2>
+                <div class="notification-quote" id="notificationQuote"></div>
+                <button class="notification-close" id="notificationClose">Continue</button>
+            </div>
+        </div>
+
+        <div class="settings-panel" id="settingsPanel">
+            <h3>Settings</h3>
+            <div class="setting-group">
+                <label for="volumeSlider">Volume</label>
+                <input type="range" id="volumeSlider" min="0" max="100" value="50">
+                <span id="volumeValue">50%</span>
+            </div>
+            <div class="setting-group">
+                <label for="soundSelect">Notification Sound</label>
+                <select id="soundSelect">
+                    <option value="classic">Classic Buzzer</option>
+                    <option value="arena">Arena Horn</option>
+                    <option value="championship">Championship Cheer</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="types.js"></script>
+    <script src="timer-engine.js"></script>
+    <script src="countdown-timer.js"></script>
+    <script src="stopwatch.js"></script>
+    <script src="time-formatter.js"></script>
+    <script src="timer-display.js"></script>
+    <script src="ui-controller.js"></script>
+    <script src="lakers-theme.js"></script>
+    <script src="lebron-content.js"></script>
+    <script src="notification-system.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

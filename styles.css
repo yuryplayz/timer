@@ -1,0 +1,724 @@
+/* Lakers Timer App - Main Styles */
+
+:root {
+    /* Lakers Official Colors */
+    --lakers-purple: #552583;
+    --lakers-gold: #FDB927;
+    --lakers-black: #000000;
+    --lakers-white: #FFFFFF;
+    
+    /* Additional Theme Colors */
+    --purple-light: #7B4397;
+    --purple-dark: #3D1A5B;
+    --gold-light: #FFD700;
+    --gold-dark: #B8860B;
+    
+    /* Typography */
+    --font-primary: 'Oswald', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+    --spacing-xl: 3rem;
+    
+    /* Border Radius */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 20px;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(85, 37, 131, 0.1);
+    --shadow-md: 0 4px 8px rgba(85, 37, 131, 0.15);
+    --shadow-lg: 0 8px 16px rgba(85, 37, 131, 0.2);
+    --shadow-xl: 0 12px 24px rgba(85, 37, 131, 0.25);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-secondary);
+    background: linear-gradient(135deg, var(--lakers-purple) 0%, var(--purple-dark) 100%);
+    color: var(--lakers-white);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md) 0;
+    border-bottom: 2px solid var(--lakers-gold);
+    margin-bottom: var(--spacing-lg);
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.lakers-logo {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.app-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--lakers-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+.lebron-crown {
+    font-size: 2rem;
+    filter: drop-shadow(0 2px 4px rgba(253, 185, 39, 0.5));
+}
+
+/* Toggle Switch */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 120px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--purple-dark);
+    border: 2px solid var(--lakers-gold);
+    border-radius: var(--radius-xl);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--lakers-white);
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background: var(--lakers-gold);
+    color: var(--lakers-purple);
+    box-shadow: 0 0 20px rgba(253, 185, 39, 0.5);
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Timer Section */
+.timer-section {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+/* Mode Selector */
+.mode-selector {
+    display: flex;
+    background: var(--purple-dark);
+    border-radius: var(--radius-lg);
+    padding: 4px;
+    border: 2px solid var(--lakers-gold);
+}
+
+.mode-btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border: none;
+    background: transparent;
+    color: var(--lakers-white);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.mode-btn:hover {
+    background: rgba(253, 185, 39, 0.1);
+}
+
+.mode-btn.active {
+    background: var(--lakers-gold);
+    color: var(--lakers-purple);
+    box-shadow: var(--shadow-md);
+}
+
+/* Timer Display */
+.timer-display {
+    position: relative;
+    margin: var(--spacing-lg) 0;
+}
+
+.time-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-ring {
+    position: relative;
+    transform: rotate(-90deg);
+}
+
+.progress-svg {
+    width: 300px;
+    height: 300px;
+}
+
+.progress-background {
+    fill: none;
+    stroke: var(--purple-dark);
+    stroke-width: 8;
+}
+
+.progress-bar {
+    fill: none;
+    stroke: var(--lakers-gold);
+    stroke-width: 8;
+    stroke-linecap: round;
+    stroke-dasharray: 879.6;
+    stroke-dashoffset: 879.6;
+    transition: stroke-dashoffset 0.3s ease;
+    filter: drop-shadow(0 0 10px rgba(253, 185, 39, 0.5));
+}
+
+.time-display {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    font-family: var(--font-primary);
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--lakers-gold);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 2px;
+}
+
+/* Input Section */
+.input-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: center;
+}
+
+.time-inputs {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.input-group label {
+    font-family: var(--font-primary);
+    font-weight: 600;
+    color: var(--lakers-gold);
+    font-size: 1.1rem;
+}
+
+.input-group input {
+    width: 80px;
+    height: 50px;
+    border: 2px solid var(--lakers-gold);
+    border-radius: var(--radius-md);
+    background: var(--purple-dark);
+    color: var(--lakers-white);
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    box-shadow: 0 0 15px rgba(253, 185, 39, 0.5);
+    border-color: var(--gold-light);
+}
+
+/* Preset Buttons */
+.preset-buttons {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preset-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 2px solid var(--lakers-gold);
+    border-radius: var(--radius-md);
+    background: transparent;
+    color: var(--lakers-gold);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 60px;
+    min-height: 44px; /* Touch target requirement */
+}
+
+.preset-btn:hover {
+    background: var(--lakers-gold);
+    color: var(--lakers-purple);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.lebron-preset {
+    background: var(--lakers-gold);
+    color: var(--lakers-purple);
+    font-weight: 700;
+    position: relative;
+}
+
+.lebron-preset::after {
+    content: '👑';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    font-size: 0.8rem;
+}
+
+/* Control Panel */
+.control-panel {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+}
+
+.control-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-md);
+    border: 3px solid var(--lakers-gold);
+    border-radius: var(--radius-lg);
+    background: var(--purple-dark);
+    color: var(--lakers-white);
+    font-family: var(--font-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 80px;
+    min-height: 80px; /* Touch target requirement */
+}
+
+.control-btn:hover:not(:disabled) {
+    background: var(--lakers-gold);
+    color: var(--lakers-purple);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+}
+
+.control-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #666;
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+}
+
+.btn-text {
+    font-size: 0.9rem;
+}
+
+.start-btn:hover:not(:disabled) {
+    box-shadow: 0 8px 16px rgba(0, 255, 0, 0.3);
+}
+
+.pause-btn:hover:not(:disabled) {
+    box-shadow: 0 8px 16px rgba(255, 165, 0, 0.3);
+}
+
+.reset-btn:hover:not(:disabled) {
+    box-shadow: 0 8px 16px rgba(255, 0, 0, 0.3);
+}
+
+/* LeBron Content */
+.lebron-content {
+    width: 100%;
+    max-width: 800px;
+    margin-top: var(--spacing-xl);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+}
+
+.lebron-content.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.quote-section {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.lebron-quote {
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--lakers-gold);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.4;
+    position: relative;
+    padding: var(--spacing-lg);
+    border-left: 4px solid var(--lakers-gold);
+    background: rgba(253, 185, 39, 0.1);
+    border-radius: var(--radius-md);
+}
+
+.achievements-section h3 {
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--lakers-gold);
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.achievement-item {
+    background: var(--purple-dark);
+    border: 2px solid var(--lakers-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--gold-light);
+}
+
+.achievement-number {
+    font-family: var(--font-primary);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--lakers-gold);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.achievement-label {
+    font-family: var(--font-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--lakers-white);
+    margin-top: var(--spacing-xs);
+}
+
+/* Notification Overlay */
+.notification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.notification-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.notification-content {
+    background: linear-gradient(135deg, var(--lakers-purple), var(--purple-dark));
+    border: 3px solid var(--lakers-gold);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xl);
+    text-align: center;
+    max-width: 500px;
+    margin: var(--spacing-md);
+    box-shadow: var(--shadow-xl);
+    animation: celebrationPulse 2s infinite;
+}
+
+@keyframes celebrationPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.notification-icon {
+    font-size: 4rem;
+    margin-bottom: var(--spacing-md);
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.notification-title {
+    font-family: var(--font-primary);
+    font-size: 2.5rem;
+    color: var(--lakers-gold);
+    margin-bottom: var(--spacing-md);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.notification-quote {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--lakers-white);
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.4;
+}
+
+.notification-close {
+    padding: var(--spacing-md) var(--spacing-xl);
+    border: 2px solid var(--lakers-gold);
+    border-radius: var(--radius-lg);
+    background: var(--lakers-gold);
+    color: var(--lakers-purple);
+    font-family: var(--font-primary);
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 44px;
+}
+
+.notification-close:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Settings Panel */
+.settings-panel {
+    position: fixed;
+    top: 20px;
+    right: -300px;
+    width: 280px;
+    background: var(--purple-dark);
+    border: 2px solid var(--lakers-gold);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    transition: right 0.3s ease;
+    z-index: 100;
+}
+
+.settings-panel.active {
+    right: 20px;
+}
+
+.settings-panel h3 {
+    font-family: var(--font-primary);
+    color: var(--lakers-gold);
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+.setting-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.setting-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--lakers-white);
+    margin-bottom: var(--spacing-xs);
+}
+
+.setting-group input[type="range"] {
+    width: 100%;
+    margin-bottom: var(--spacing-xs);
+}
+
+.setting-group select {
+    width: 100%;
+    padding: var(--spacing-xs);
+    border: 1px solid var(--lakers-gold);
+    border-radius: var(--radius-sm);
+    background: var(--lakers-purple);
+    color: var(--lakers-white);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .app-title {
+        font-size: 2rem;
+    }
+    
+    .lakers-logo, .lebron-crown {
+        font-size: 2rem;
+    }
+    
+    .time-display {
+        font-size: 2.5rem;
+    }
+    
+    .progress-svg {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .time-inputs {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .control-panel {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .achievement-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .notification-content {
+        margin: var(--spacing-sm);
+        padding: var(--spacing-lg);
+    }
+    
+    .notification-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-container {
+        padding: var(--spacing-sm);
+    }
+    
+    .app-header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+    
+    .preset-buttons {
+        gap: var(--spacing-xs);
+    }
+    
+    .preset-btn {
+        min-width: 50px;
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9rem;
+    }
+    
+    .control-btn {
+        min-width: 70px;
+        min-height: 70px;
+        padding: var(--spacing-sm);
+    }
+    
+    .btn-icon {
+        font-size: 1.2rem;
+    }
+    
+    .btn-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse {
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Hidden class for JavaScript control */
+.hidden {
+    display: none !important;
+}
